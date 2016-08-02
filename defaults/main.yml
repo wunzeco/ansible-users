@@ -1,0 +1,35 @@
+---
+# List of groups to be created
+users_add_groups: []
+
+# List of groups to be removed
+users_remove_groups: []
+
+# List of user dicts that describes the attributes of each user to be created
+users_add_users: []
+
+# List of user dicts that describes the attributes of each user to be removed.
+# "username" attribute alone will suffice.
+users_remove_users: []
+
+
+
+## EXAMPLES
+#
+#users_add_groups: [ devops ]
+#
+#users_add_users:
+#  - username:  ogonna
+#    shell:     "/bin/bash"
+#    comment:   "Ogonna I"
+#    groups:    [ devops ]
+#    home:      "/home/ogonna"
+#    createhome: yes
+#    ssh_keys: []
+#      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC1dZw1rcvBElYXHhEfqphmtJ48Do+q05EO3p4RWvTI0YZcOw4ly4lUr/eR1pY9vDTDXcRUlt7FUrwgraqOtuiEZgFVbv+QQPlKXtkqzTkqy/HCAgDaB8vRdMaTk6QGQTBybXe6k6BZKpcaFwxPUmO127SegWbqnp4x/gGqfjY9W5FqBdPF3LNAZi/TJ9pWmO2vNrwhRvhmIX4zLI+pDGjNeRO01uk0No9z52lJgXcBAqb9Pn8TbEhPJZIdkvjVbFKQlZTjW4X47zNQ7CuCrbG2HuCcM3wqMETqBaZDO36j06Ehf3nWeqUC7lI9RHT0lxl0LkxedZbTshgf2ZbQtQp3"
+#
+#users_remove_groups: [ somegrp ]
+#
+#users_remove_users:
+#  - username: john
+#  - username: alison

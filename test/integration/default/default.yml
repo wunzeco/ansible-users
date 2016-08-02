@@ -1,0 +1,24 @@
+---
+- hosts: test-kitchen
+
+  vars:
+    users_add_groups: [ devops ]
+    users_add_users:
+      - username: ogonna
+        groups: [ devops ]
+        comment: "Ogonna I"
+        ssh_keys: 
+          - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC1dZw1rcvBElYXHhEfqphmtJ48Do+q05EO3p4RWvTI0YZcOw4ly4lUr/eR1pY9vDTDXcRUlt7FUrwgraqOtuiEZgFVbv+QQPlKXtkqzTkqy/HCAgDaB8vRdMaTk6QGQTBybXe6k6BZKpcaFwxPUmO127SegWbqnp4x/gGqfjY9W5FqBdPF3LNAZi/TJ9pWmO2vNrwhRvhmIX4zLI+pDGjNeRO01uk0No9z52lJgXcBAqb9Pn8TbEhPJZIdkvjVbFKQlZTjW4X47zNQ7CuCrbG2HuCcM3wqMETqBaZDO36j06Ehf3nWeqUC7lI9RHT0lxl0LkxedZbTshgf2ZbQtQp3"
+          - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDVT4Hth7soHd5teNxW4Y+vNUr4Tvfz19jt70DLstDjf965aqciIzi8EC+3qiiX2FClbfq/RA0RL5wbK1l27OxOr6tHExslapDe/TU58kQacyvU7m0E3JI+0oor0E+imt5LSh2WikP+yPbInnttSfX0f6zwN7ROh3V9bVoLyzz4WWENszRHceoJ9YfyF6+nZqEz1adG64Tc94Ys00g+hWm52A04IdOvs5QOYw7rnou91W73odzTmcoowHzP5HrBrQwK2hFKrrXCcg0TA/7eD5F8V7jQlhKKbCEawUrBlnTVEKcIjZjmNDky5yuFLHJ+npl2Itn/H2kpunzJ9K0xizJv"
+      - username: chika
+        ssh_keys:
+          - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDFY/1wcvBiJHz4LVpAxNy56VTNJcXrWFQu604jrmzurwxC69dzHA7YnQvSaN4DEi6yYHKKBEhVC5RqANE5VSpAhaoGOVZ22t6N25/UQrImbEqIJeSX1RiHuX+Hcr4AlTgxNfPdg7ohs35fQYhNBbmAnskJ2IpXtCQwFKhsvjgdNyXp2df4cFv5sEOU7SkNdaGiVRXsQSOk34QGXsOqaCQYaq8AUt8If5o5elU0eOzP3VDCu9DdLJQXO55T/Y5UqaRBkeEE7tIlaL+6zGhoINNa3xReBVqaH5M2qDWnxEwrkMj1Mrp7afm1FM6fikxpOo+ft/gfo/IKVnOMn8Dd3ULz"
+          - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDlMV2IlNdCBwzZaq3zJlefeDlWVZh4hLFZOpJpzqZ6J+SnQ7TfnZrbfj9lh6hTKWpn60Aqg0wV+oRF00NJWRT9zI9QBO3K0HkMDeXxINP2T75+knCzMbce/g0W4txzg76pFjz8ei++JaqKa1ow30V2BtNbejaKrkjSGSxW5WYhSYHNwozhprmmvlZjcQ0YXSKdKhbP4bCP1P7rmV5FjkJPTTYuoNxl6qprmZVk1LsBJP+4rs2W9UIt7oi1Afn0eQkzl7J9kP5FsxxJ99qShgfNuFiFHWl1+EYk446XW/8Xw2TuejWegDzpVg+MFRU+2XcagZH4re+72tqj4MzDG1LP"
+      - username: adaku
+        groups: [ devops ]
+
+    users_remove_users:
+      - username: chika
+
+  roles:
+    - ansible-users

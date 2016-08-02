@@ -1,0 +1,58 @@
+---
+
+## Add
+
+- name: Create groups
+  group:
+    name:  "{{ item }}"
+    state: present
+  with_items: "{{ users_add_groups }}"
+  when: users_add_groups
+
+- name: Create users primary groups
+  group:
+    name:  "{{ item.group|default(item.username) }}"
+    state: present
+  with_items: "{{ users_add_users }}"
+  when: users_add_users
+
+- name: Create users
+  user:
+    name:       "{{ item.username }}"
+    home:       "{{ item.home|default('/home/'+item.username) }}"
+    shell:      "{{ item.shell|default('/bin/bash') }}"
+    group:      "{{ item.group|default(item.username) }}"
+    groups:     "{{ item.groups|default('')|join(',') }}"
+    comment:    "{{ item.comment|default('') }}"
+    createhome: "{{ item.createhome|default(true) }}"
+    state:      present
+  with_items: "{{ users_add_users }}"
+  when: users_add_users
+
+- name: Add authorized_keys for users
+  authorized_key:
+    user: "{{ item.0.username }}"
+    key:  "{{ item.1 }}"
+  with_subelements:
+    - users_add_users
+    - ssh_keys
+    - skip_missing: true
+
+
+## Remove
+
+- name: Remove groups
+  group:
+    name:  "{{ item }}"
+    state: absent
+  with_items: "{{ users_remove_groups }}"
+  when: users_remove_groups
+
+- name: Remove users
+  user:
+    name:   "{{ item.username }}"
+    remove: yes
+    state:  absent
+  with_items: "{{ users_remove_users }}"
+  when: users_remove_users
+
