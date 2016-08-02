@@ -1,7 +1,7 @@
 users
 =====
 
-This role manages unix users
+This role manages unix users.
 
 `users_add_users` variable takes a list of dictionaries one per user. Valid
 attributes of a user dict.
@@ -14,6 +14,8 @@ attributes of a user dict.
   * `home`:        Defaults to `/home/{{ item.username }}`
   * `ssh\_keys`:   List of ssh authorized keys. Defaults to `[]`
 
+This role assumes users will only ssh private keys for login so does not support 
+password.
 
 ## Example
 
