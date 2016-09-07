@@ -12,6 +12,8 @@ users_add_users: []
 # "username" attribute alone will suffice.
 users_remove_users: []
 
+# List of sudoers user specifications to control who can run what
+users_sudoers: []
 
 
 ## EXAMPLES
@@ -33,3 +35,7 @@ users_remove_users: []
 #users_remove_users:
 #  - username: john
 #  - username: alison
+#
+#users_sudoers: 
+#  - comment:  "Devops group privileges"
+#    spec:     "%devops ALL=(ALL) NOPASSWD: ALL"

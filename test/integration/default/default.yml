@@ -20,5 +20,9 @@
     users_remove_users:
       - username: chika
 
+    users_sudoers:
+      - comment:  "devops group privileges"
+        spec:     "%devops ALL=(ALL) NOPASSWD: ALL"
+
   roles:
     - ansible-users

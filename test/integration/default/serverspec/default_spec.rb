@@ -22,3 +22,13 @@ end
 describe user('chika') do
   it { should_not exist }
 end
+
+describe file('/etc/sudoers.d/10_custom') do
+  it { should be_file }
+  it { should be_mode 440 }
+  it { should be_owned_by 'root' }
+end
+
+describe command('su ogonna -c "sudo touch /root/testfile"') do
+  its(:exit_status) { should eq 0 }
+end

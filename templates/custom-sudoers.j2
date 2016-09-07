@@ -1,0 +1,9 @@
+# Ansible managed
+
+{% for cfg in users_sudoers %}
+{% if cfg.comment|default(false) %}
+# {{ cfg.comment }}
+{% endif %}
+{{ cfg.spec }}
+
+{% endfor %}
