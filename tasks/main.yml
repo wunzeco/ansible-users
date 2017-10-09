@@ -67,6 +67,7 @@
     group: root
     mode:  0440
     validate: 'visudo -cf %s'
+  when: users_sudoers|default([])|length != 0
 
 - name: Remove custom sudoers config if empty
   file: path=/etc/sudoers.d/10_custom state=absent
